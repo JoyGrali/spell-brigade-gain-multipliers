@@ -1,5 +1,8 @@
 # Spell Brigade — Gain Multipliers / Stat Editor
 
+**中文** | [English](README.en.md)
+
+
 《The Spell Brigade（咒语旅团）》的 MelonLoader 模组：局内法力（经验）倍率、结算金币倍率、玩家属性编辑、局外巫师等级直接设置。带游戏内面板（uGUI + TMP，中文界面）。
 
 - 游戏版本：1.2.0.20127（IL2CPP，Unity 6）
@@ -124,3 +127,4 @@ pwsh -File .\package.ps1   # 生成 dist\SpellBrigadeGainMultipliers-<版本>.zi
 - 局内法力倍率/金币倍率只在单机或你是主机时生效（服务端结算）。
 - 联机使用属于单方面改动，组队前请先和队友说明。
 - 游戏更新后 IL2CPP 代理会变，方法名失效需要重新生成并核对。
+

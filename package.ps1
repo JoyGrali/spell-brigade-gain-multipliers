@@ -16,6 +16,7 @@ New-Item -ItemType Directory -Force -Path (Join-Path $stage 'Mods') | Out-Null
 
 Copy-Item $dll (Join-Path $stage 'Mods\SpellBrigadeGainMultipliers.dll')
 Copy-Item (Join-Path $root 'README.md') $stage
+Copy-Item (Join-Path $root 'README.en.md') $stage
 Copy-Item (Join-Path $root 'LICENSE') $stage
 Copy-Item (Join-Path $root 'install.ps1') $stage
 Copy-Item (Join-Path $root 'uninstall.ps1') $stage
@@ -33,3 +34,4 @@ Copy-Item $dll (Join-Path $dist 'SpellBrigadeGainMultipliers.dll') -Force
 'zip: ' + $zip
 '  size: ' + [Math]::Round((Get-Item $zip).Length / 1KB, 1) + ' KB'
 '  sha256: ' + (Get-FileHash $zip -Algorithm SHA256).Hash
+
