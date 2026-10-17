@@ -9,6 +9,15 @@
 - 依赖：[MelonLoader](https://melonloader.co/) 0.7.x
 - 许可证：MIT
 
+## 预览
+
+| 倍率页 | 属性页 |
+|---|---|
+| ![倍率页](docs/screenshots/panel-multipliers.png) | ![属性页](docs/screenshots/panel-stats.png) |
+
+属性加成会**直接反映到游戏自己的属性面板**上 —— 下图里 `最大生命值 1390` = 基础 1350 + 面板加成 40（玩家名已打码）：
+
+![游戏内属性面板](docs/screenshots/ingame-stats.png)
 ## 安装
 
 ### 方式一：双击安装（推荐）
@@ -127,4 +136,5 @@ pwsh -File .\package.ps1   # 生成 dist\SpellBrigadeGainMultipliers-<版本>.zi
 - 局内法力倍率/金币倍率只在单机或你是主机时生效（服务端结算）。
 - 联机使用属于单方面改动，组队前请先和队友说明。
 - 游戏更新后 IL2CPP 代理会变，方法名失效需要重新生成并核对。
+
 

@@ -17,3 +17,7 @@ obj/
 # OS
 Thumbs.db
 desktop.ini
+
+# raw screenshots (contain un-masked personal data)
+raw-*.png
+

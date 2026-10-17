@@ -18,7 +18,7 @@ namespace SpellBrigadeGainMultipliers
         private const float RootX = 24f;
         private const float RootY = 24f;
         private const float PanelWidth = 780f;
-        private const float PanelHeight = 680f;
+        private const float PanelHeight = 520f;
 
         private static readonly Color PanelColor = new Color(0.04f, 0.045f, 0.07f, 0.94f);
         private static readonly Color ButtonColor = new Color(0.16f, 0.18f, 0.26f, 1f);
@@ -49,6 +49,7 @@ namespace SpellBrigadeGainMultipliers
         private static RectTransform _root;
         private static RectTransform _multiPage;
         private static RectTransform _statsPage;
+        private static RectTransform _statusRoot;
         private static Il2CppTMPro.TMP_FontAsset _font;
 
         private static bool _wasDown;
@@ -62,6 +63,22 @@ namespace SpellBrigadeGainMultipliers
         private static Action<float> _editApply;
 
         public static bool Built => _built;
+
+        private static readonly string ModVersion = ReadModVersion();
+
+        private static string ReadModVersion()
+        {
+            try
+            {
+                var attribute = (MelonLoader.MelonInfoAttribute)Attribute.GetCustomAttribute(
+                    typeof(Ugui).Assembly, typeof(MelonLoader.MelonInfoAttribute));
+                return attribute?.Version ?? "2.5";
+            }
+            catch
+            {
+                return "2.5";
+            }
+        }
 
         // ---------------------------------------------------------------- lifecycle
 
@@ -154,9 +171,12 @@ namespace SpellBrigadeGainMultipliers
 
             _parent = _root;
 
+            _statusRoot = NewRect("StatusRoot", _root, 0f, 0f, PanelWidth, PanelHeight);
+            _parent = _statusRoot;
             Box("statusBg", 10f, PanelHeight - 118f, PanelWidth - 20f, 100f, new Color(0f, 0f, 0f, 0.35f));
             var status = Label("status", 18f, PanelHeight - 116f, PanelWidth - 36f, 96f, 13f, DimColor);
             status.enableWordWrapping = true;
+            _parent = _root;
 
             var edit = Label("edit", 18f, PanelHeight - 26f, PanelWidth - 36f, 20f, 14f, ValueColor);
             edit.enableWordWrapping = false;
@@ -256,7 +276,7 @@ namespace SpellBrigadeGainMultipliers
                 Box(key + "_bonusBg", 322f, y, 70f, 24f, ButtonColor);
                 Label(key + "_bonus", 328f, y + 3f, 64f, 20f, 13f, DimColor);
 
-                y += 27f;
+                y += 26f;
             }
         }
 
@@ -265,6 +285,7 @@ namespace SpellBrigadeGainMultipliers
             _page = page;
             if (_multiPage != null) _multiPage.gameObject.SetActive(page == 0);
             if (_statsPage != null) _statsPage.gameObject.SetActive(page == 1);
+            if (_statusRoot != null) _statusRoot.gameObject.SetActive(page == 0);
         }
 
         // ---------------------------------------------------------------- widget helpers
@@ -375,7 +396,7 @@ namespace SpellBrigadeGainMultipliers
 
         private static void Refresh()
         {
-            SetText("title", Text.T("Gain Multipliers 2.0", "倍率与属性 2.0"));
+            SetText("title", Text.T("Gain Multipliers " + ModVersion, "倍率与属性 " + ModVersion));
 
             SetText("xp_label", Text.T("Mana (in-run XP)", "法力（局内经验）"));
             SetText("gold_label", Text.T("Gold (run reward)", "金币（结算）"));
@@ -654,6 +675,8 @@ namespace SpellBrigadeGainMultipliers
         }
     }
 }
+
+
 
 
 

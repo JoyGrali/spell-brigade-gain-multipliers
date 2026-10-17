@@ -8,6 +8,15 @@ A [MelonLoader](https://melonloader.co/) mod for *The Spell Brigade*: in-run man
 - Requires: MelonLoader 0.7.x
 - License: MIT
 
+## Preview
+
+| Multipliers page | Stats page |
+|---|---|
+| ![Multipliers](docs/screenshots/panel-multipliers.png) | ![Stats](docs/screenshots/panel-stats.png) |
+
+Stat bonuses show up in **the game's own stat panel** — below, `Max Health 1390` = base 1350 + 40 from the panel (player name pixelated):
+
+![In-game stats](docs/screenshots/ingame-stats.png)
 ## Install
 
 ### Option 1: double-click installer (recommended)
@@ -135,3 +144,4 @@ Building therefore requires an actual game installation — CI cannot do it.
 - Mana/gold multipliers only take effect in single player or when you are the host (server-authoritative).
 - In co-op these are one-sided changes; tell your teammates first.
 - After a game update the IL2CPP proxies change; method names may need to be re-checked.
+
