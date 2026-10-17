@@ -1,0 +1,19 @@
+# build output
+out/
+dist/
+bin/
+obj/
+
+# local build cache (the build script uses these when a workspace-level override exists)
+.dotnet/
+.nuget/
+
+# IDE
+.vs/
+.idea/
+*.user
+*.suo
+
+# OS
+Thumbs.db
+desktop.ini
